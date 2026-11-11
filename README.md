@@ -1,73 +1,205 @@
-﻿# CreditWise AI – Intelligent Loan Approval & Credit Risk Assessment
+﻿# 💳 CreditWise AI
+### Intelligent Loan Default Risk Assessment & Credit Portfolio Analytics
 
-CreditWise AI is an interactive machine learning decision-support application designed to estimate loan default risk and support data-driven credit portfolio analysis.
+<p align="center">
+  <strong>Turning Credit Data into Smarter Risk Insights.</strong>
+</p>
 
-The application demonstrates machine learning, business analytics, risk assessment, explainable AI, and interactive dashboard development.
+<p align="center">
+  An interactive Machine Learning application that estimates loan default probability, evaluates applicant risk, and transforms credit portfolio data into meaningful business insights.
+</p>
 
-## Key Features
+<p align="center">
+  ![Python](https://img.shields.io/badge/Python-3.14-3776AB?style=for-the-badge&logo=python&logoColor=white)
+  ![Streamlit](https://img.shields.io/badge/Streamlit-1.67-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white)
+  ![Machine Learning](https://img.shields.io/badge/Machine%20Learning-Random%20Forest-2E8B57?style=for-the-badge)
+  ![Status](https://img.shields.io/badge/Status-Portfolio%20Project-6C63FF?style=for-the-badge)
+</p>
 
-1. **Executive Dashboard** – Overview of the credit portfolio, default trends, and key risk indicators.
-2. **Applicant Risk Assessment** – Estimate an applicant's probability of default using a calibrated machine learning model.
-3. **Portfolio Analytics** – Explore portfolio composition, loan characteristics, and risk patterns.
-4. **Explainable AI** – Explore model explanations and factors contributing to risk estimates.
-5. **Batch Assessment** – Assess multiple applicant records in one workflow.
+---
 
-## Technology Stack
+## 🎯 Project Overview
 
-- Python
-- Streamlit
-- Pandas and NumPy
-- Scikit-learn
-- Plotly
-- Joblib
-- Pillow
+Financial institutions process thousands of loan applications while balancing business growth, credit quality, and financial risk.
 
-## Machine Learning Approach
+**CreditWise AI** demonstrates how machine learning and business analytics can help understand borrower risk and explore portfolio-level lending patterns.
 
-The application uses a calibrated Random Forest classification model trained on a credit risk dataset.
+The application combines predictive modelling, interactive dashboards, and explainable AI to provide a practical view of credit risk.
 
-The deployed candidate model excludes `loan_grade` to avoid relying on a potentially problematic underwriting-related feature.
+It is designed as a decision-support and analytical demonstration—not an automated loan approval system.
 
-The model estimates the probability of loan default. It does not make an actual lending approval or rejection decision.
+## ✨ Key Features
 
-## Dataset
+| Module | What it delivers |
+|---|---|
+| 📊 **Executive Dashboard** | High-level portfolio overview, default trends, and key risk indicators. |
+| 👤 **Applicant Risk Assessment** | Estimates an individual applicant's probability of default using a calibrated ML model. |
+| 📈 **Portfolio Analytics** | Explores borrower characteristics, loan distribution, and portfolio risk patterns. |
+| 🧠 **Explainable AI** | Helps interpret model behaviour and understand factors contributing to risk estimates. |
+| 📁 **Batch Assessment** | Supports risk assessment of multiple applicant records through a single workflow. |
 
-Source: [Credit Risk Dataset – Kaggle](https://www.kaggle.com/datasets/laotse/credit-risk-dataset)
+## 🛠️ Technology Stack
 
-The dataset contains historical loan and borrower information. Monetary values are represented in USD.
+| Category | Technologies |
+|---|---|
+| Programming | Python |
+| Application | Streamlit |
+| Data Analysis | Pandas, NumPy |
+| Machine Learning | Scikit-learn |
+| Visualisation | Plotly |
+| Model Persistence | Joblib |
+| Image Processing | Pillow |
 
-## Run Locally
+## 🤖 Machine Learning Approach
 
-1. Clone this repository.
-2. Create and activate a Python virtual environment.
-3. Install dependencies:
+The project uses a **Calibrated Random Forest Classification Model** to estimate the probability of loan default.
 
-   `pip install -r requirements.txt`
+The selected deployment candidate excludes `loan_grade` to avoid relying on a potentially problematic underwriting-related feature.
 
-4. Run the application:
+**Model workflow:**
 
-   `streamlit run app.py`
+1. Data preparation and preprocessing
+2. Exploratory data analysis
+3. Feature engineering and selection
+4. Model training and evaluation
+5. Probability calibration
+6. Integration into the Streamlit application
 
-## Model and Data
+The output is an estimated default probability. It should not be interpreted as a guaranteed outcome or an actual lending decision.
 
-The application requires the calibrated model stored at:
+## 📊 Business Value
 
-`models/credit_risk_rf_optimized_calibrated_no_loan_grade.joblib`
+CreditWise AI connects technical machine learning concepts with practical business questions:
 
-It also uses the processed portfolio dataset:
+- **Risk Identification:** How can potentially high-risk applications be identified for further review?
+- **Portfolio Monitoring:** What patterns exist across loan amounts, interest rates, borrower characteristics, and default outcomes?
+- **Data-Driven Insights:** How can historical data support better-informed business discussions?
+- **Model Transparency:** How can model predictions be explored and interpreted?
+- **Operational Efficiency:** How can multiple applicant records be assessed through a consistent analytical workflow?
 
-`data/processed/credit_risk_cleaned.csv`
+## 📂 Project Structure
 
-## Important Limitations and Responsible Use
+```text
+CreditWise-AI/
+│
+├── app.py
+├── requirements.txt
+├── README.md
+│
+├── data/
+│   ├── raw/
+│   └── processed/
+│       └── credit_risk_cleaned.csv
+│
+├── models/
+│   └── credit_risk_rf_optimized_calibrated_no_loan_grade.joblib
+│
+├── notebooks/
+│   └── Model Development & Analysis
+│
+├── reports/
+│   └── Model Evaluation & Analysis
+│
+└── src/
+    ├── data_loader.py
+    ├── model_service.py
+    └── Application Modules
+```
 
-- This is an educational and portfolio demonstration project, not a production lending system.
-- Estimated default probability is not a guarantee of future borrower behaviour.
-- Model outputs should not be used as the sole basis for lending decisions.
-- Historical data may contain bias and may not represent future applicants.
-- SHAP feature attributions describe model behaviour and do not establish causation.
+## 🚀 Run the Project Locally
+
+Follow these steps to run CreditWise AI on your machine.
+
+**1. Clone the repository**
+
+```bash
+git clone https://github.com/rushikeshgaikwad2026-glitch/CreditWise-AI.git
+```
+
+**2. Navigate to the project directory**
+
+```bash
+cd CreditWise-AI
+```
+
+**3. Create a virtual environment**
+
+```bash
+python -m venv .venv
+```
+
+**4. Activate the environment (Windows PowerShell)**
+
+```powershell
+.\.venv\Scripts\Activate.ps1
+```
+
+**5. Install dependencies**
+
+```bash
+pip install -r requirements.txt
+```
+
+**6. Launch the application**
+
+```bash
+streamlit run app.py
+```
+
+The application will open in your browser, normally at `http://localhost:8501`.
+
+**Required project assets:**
+- Processed dataset: `data/processed/credit_risk_cleaned.csv`
+- Calibrated model: `models/credit_risk_rf_optimized_calibrated_no_loan_grade.joblib`
+
+## 📚 Dataset
+
+**Source:** [Credit Risk Dataset – Kaggle](https://www.kaggle.com/datasets/laotse/credit-risk-dataset)
+
+The dataset contains historical borrower and loan information used for credit risk analysis and model development.
+
+**Currency:** Monetary values are represented in USD.
+
+## 🛡️ Responsible AI & Limitations
+
+CreditWise AI is an educational and portfolio demonstration project.
+
+- Model predictions represent estimated default probabilities, not guaranteed borrower outcomes.
+- Predictions must not be used as the sole basis for lending decisions.
+- Historical data can contain biases and may not represent future applicants.
+- SHAP feature attributions explain model behaviour; they do not establish causation.
 - Descriptive subgroup analysis is not a formal legal fairness assessment.
-- The deployed model and explanatory visualizations may represent different stages of the prediction pipeline.
+- The deployed prediction model and explanatory visualisations may represent different stages of the modelling pipeline.
 
-## Project Purpose
+## 💡 Skills Demonstrated
 
-This project demonstrates the practical application of machine learning and analytics to a business problem, translating credit risk data into interpretable insights through an interactive application.
+**Business & Analytical Skills**
+- Business problem understanding
+- Credit risk analysis
+- Data-driven decision support
+- Portfolio performance analysis
+- Translating analytical findings into business insights
+
+**Technical Skills**
+- Python programming
+- Data cleaning and preprocessing
+- Exploratory data analysis
+- Machine learning model development
+- Probability calibration
+- Explainable AI
+- Interactive dashboard development
+- Streamlit application deployment
+
+## 👨‍💻 About This Project
+
+CreditWise AI is part of my hands-on portfolio demonstrating the practical application of **Machine Learning, Business Analytics, and Data-Driven Decision Making** to a real-world financial services use case.
+
+My objective was to go beyond building a predictive model and develop an interactive application that connects data science with business understanding.
+
+---
+
+<p align="center">
+  <strong>Built with Python, Machine Learning & Business Thinking.</strong>
+  <br>
+  <em>Turning Data into Decisions. Making Analytics Meaningful.</em>
+</p>
