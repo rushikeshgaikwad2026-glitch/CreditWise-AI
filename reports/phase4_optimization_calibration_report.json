@@ -1,0 +1,844 @@
+{
+  "selection_protocol": "Two 5-fold stratified RandomizedSearchCV searches on training data only, average_precision primary; calibration/threshold selection from nested training-only OOF predictions; test set evaluated once after choices frozen.",
+  "random_state": 42,
+  "train_rows": 25928,
+  "test_rows": 6483,
+  "search_iterations_per_scenario": 8,
+  "cv_folds_for_hyperparameter_search": 5,
+  "calibration_oof_folds": 3,
+  "calibration_inner_folds": 3,
+  "candidate_feature_scenario": "without_loan_grade",
+  "candidate_features": [
+    "person_age",
+    "person_income",
+    "person_home_ownership",
+    "person_emp_length",
+    "loan_intent",
+    "loan_amnt",
+    "loan_int_rate",
+    "loan_percent_income",
+    "cb_person_default_on_file",
+    "cb_person_cred_hist_length"
+  ],
+  "comparison_features": [
+    "person_age",
+    "person_income",
+    "person_home_ownership",
+    "person_emp_length",
+    "loan_intent",
+    "loan_grade",
+    "loan_amnt",
+    "loan_int_rate",
+    "loan_percent_income",
+    "cb_person_default_on_file",
+    "cb_person_cred_hist_length"
+  ],
+  "candidate_best_parameters": {
+    "classifier__n_estimators": 300,
+    "classifier__min_samples_split": 10,
+    "classifier__min_samples_leaf": 8,
+    "classifier__max_features": 0.7,
+    "classifier__max_depth": null,
+    "classifier__class_weight": "balanced"
+  },
+  "candidate_cv_average_precision": 0.8693549702109153,
+  "comparison_best_parameters": {
+    "classifier__n_estimators": 300,
+    "classifier__min_samples_split": 10,
+    "classifier__min_samples_leaf": 8,
+    "classifier__max_features": 0.7,
+    "classifier__max_depth": null,
+    "classifier__class_weight": "balanced"
+  },
+  "comparison_cv_average_precision": 0.8870992172485643,
+  "candidate_calibration_selected_on_training_oof_brier": "isotonic",
+  "comparison_calibration_selected_on_training_oof_brier": "isotonic",
+  "candidate_threshold_selected_on_training_oof_f1": 0.4,
+  "threshold_candidates": [
+    0.2,
+    0.3,
+    0.4,
+    0.5,
+    0.6,
+    0.7
+  ],
+  "threshold_selection_rule": "maximum training out-of-fold F1; precision and recall are tie-breakers",
+  "training_oof_calibration_metrics": [
+    {
+      "scenario": "without_loan_grade",
+      "calibration": "uncalibrated",
+      "oof_brier_score": 0.08230933809994027,
+      "oof_average_precision": 0.866080082410961,
+      "oof_roc_auc": 0.9243804399657315,
+      "outer_cv_folds": 3,
+      "calibrator_cv_folds": 0
+    },
+    {
+      "scenario": "without_loan_grade",
+      "calibration": "sigmoid",
+      "oof_brier_score": 0.06926523631629991,
+      "oof_average_precision": 0.8617559297933547,
+      "oof_roc_auc": 0.9229325665637399,
+      "outer_cv_folds": 3,
+      "calibrator_cv_folds": 3
+    },
+    {
+      "scenario": "without_loan_grade",
+      "calibration": "isotonic",
+      "oof_brier_score": 0.06784160825040077,
+      "oof_average_precision": 0.8610348808920485,
+      "oof_roc_auc": 0.9222936291402786,
+      "outer_cv_folds": 3,
+      "calibrator_cv_folds": 3
+    },
+    {
+      "scenario": "with_loan_grade_comparison",
+      "calibration": "uncalibrated",
+      "oof_brier_score": 0.07225739223209465,
+      "oof_average_precision": 0.8846476094580187,
+      "oof_roc_auc": 0.933689294992776,
+      "outer_cv_folds": 3,
+      "calibrator_cv_folds": 0
+    },
+    {
+      "scenario": "with_loan_grade_comparison",
+      "calibration": "sigmoid",
+      "oof_brier_score": 0.06094874577238985,
+      "oof_average_precision": 0.8814467152098828,
+      "oof_roc_auc": 0.9319402963403252,
+      "outer_cv_folds": 3,
+      "calibrator_cv_folds": 3
+    },
+    {
+      "scenario": "with_loan_grade_comparison",
+      "calibration": "isotonic",
+      "oof_brier_score": 0.059282714791911766,
+      "oof_average_precision": 0.8801871015585365,
+      "oof_roc_auc": 0.9311473774308372,
+      "outer_cv_folds": 3,
+      "calibrator_cv_folds": 3
+    }
+  ],
+  "training_oof_threshold_metrics": [
+    {
+      "threshold": 0.2,
+      "precision": 0.7205978975032852,
+      "recall": 0.7735849056603774,
+      "f1": 0.7461518836635769,
+      "false_positive_rate": 0.08397097299698869,
+      "false_negative_rate": 0.22641509433962265,
+      "tn": 18556,
+      "fp": 1701,
+      "fn": 1284,
+      "tp": 4387
+    },
+    {
+      "threshold": 0.3,
+      "precision": 0.8501573976915006,
+      "recall": 0.7143360959266444,
+      "f1": 0.7763510923725565,
+      "false_positive_rate": 0.035247075085155746,
+      "false_negative_rate": 0.2856639040733557,
+      "tn": 19543,
+      "fp": 714,
+      "fn": 1620,
+      "tp": 4051
+    },
+    {
+      "threshold": 0.4,
+      "precision": 0.9076023391812865,
+      "recall": 0.6841826838300124,
+      "f1": 0.7802131510154836,
+      "false_positive_rate": 0.019499432295009132,
+      "false_negative_rate": 0.31581731616998765,
+      "tn": 19862,
+      "fp": 395,
+      "fn": 1791,
+      "tp": 3880
+    },
+    {
+      "threshold": 0.5,
+      "precision": 0.9393106893106893,
+      "recall": 0.6631987303826485,
+      "f1": 0.777467700258398,
+      "false_positive_rate": 0.0119958532852841,
+      "false_negative_rate": 0.33680126961735146,
+      "tn": 20014,
+      "fp": 243,
+      "fn": 1910,
+      "tp": 3761
+    },
+    {
+      "threshold": 0.6,
+      "precision": 0.9558243491980016,
+      "recall": 0.6409804267324987,
+      "f1": 0.7673633101118852,
+      "false_positive_rate": 0.008293429431801353,
+      "false_negative_rate": 0.35901957326750134,
+      "tn": 20089,
+      "fp": 168,
+      "fn": 2036,
+      "tp": 3635
+    },
+    {
+      "threshold": 0.7,
+      "precision": 0.9690949227373068,
+      "recall": 0.6192911303121142,
+      "f1": 0.7556750941366326,
+      "false_positive_rate": 0.005528952954534235,
+      "false_negative_rate": 0.38070886968788575,
+      "tn": 20145,
+      "fp": 112,
+      "fn": 2159,
+      "tp": 3512
+    }
+  ],
+  "final_test_metrics": [
+    {
+      "model": "Phase 3 Random Forest (no grade, default, uncalibrated, threshold=0.50)",
+      "accuracy": 0.9191732222736387,
+      "precision_default": 0.9289827255278311,
+      "recall_default": 0.6826516220028209,
+      "f1_default": 0.7869918699186992,
+      "roc_auc": 0.9224471155653512,
+      "pr_auc_average_precision": 0.8641875585273266,
+      "brier_score": 0.06709256002879325,
+      "threshold": 0.5,
+      "tn": 4991,
+      "fp": 74,
+      "fn": 450,
+      "tp": 968,
+      "confusion_matrix": [
+        [
+          4991,
+          74
+        ],
+        [
+          450,
+          968
+        ]
+      ]
+    },
+    {
+      "model": "Phase 4 tuned + isotonic (no grade, threshold=0.40)",
+      "accuracy": 0.9170137282122475,
+      "precision_default": 0.9014598540145985,
+      "recall_default": 0.6967559943582511,
+      "f1_default": 0.7859984089101034,
+      "roc_auc": 0.927647354490356,
+      "pr_auc_average_precision": 0.8710711781794896,
+      "brier_score": 0.06392846789818218,
+      "threshold": 0.4,
+      "tn": 4957,
+      "fp": 108,
+      "fn": 430,
+      "tp": 988,
+      "confusion_matrix": [
+        [
+          4957,
+          108
+        ],
+        [
+          430,
+          988
+        ]
+      ]
+    },
+    {
+      "model": "Phase 4 tuned + isotonic (with grade comparison, threshold=0.50)",
+      "accuracy": 0.9318216874903594,
+      "precision_default": 0.9737864077669903,
+      "recall_default": 0.7073342736248237,
+      "f1_default": 0.8194444444444444,
+      "roc_auc": 0.9345277959168329,
+      "pr_auc_average_precision": 0.8864535379772472,
+      "brier_score": 0.057163460506448244,
+      "threshold": 0.5,
+      "tn": 5038,
+      "fp": 27,
+      "fn": 415,
+      "tp": 1003,
+      "confusion_matrix": [
+        [
+          5038,
+          27
+        ],
+        [
+          415,
+          1003
+        ]
+      ]
+    }
+  ],
+  "subgroup_metrics": [
+    {
+      "group_type": "Age group",
+      "group": "<=25",
+      "n": 2991,
+      "actual_default_rate": 0.23269809428284854,
+      "precision": 0.9106145251396648,
+      "recall_default": 0.7025862068965517,
+      "default_detection_rate": 0.7025862068965517,
+      "false_positive_rate": 0.02091503267973856,
+      "small_sample_flag": false
+    },
+    {
+      "group_type": "Age group",
+      "group": "26-35",
+      "n": 2764,
+      "actual_default_rate": 0.21128798842257598,
+      "precision": 0.8901098901098901,
+      "recall_default": 0.6934931506849316,
+      "default_detection_rate": 0.6934931506849316,
+      "false_positive_rate": 0.022935779816513763,
+      "small_sample_flag": false
+    },
+    {
+      "group_type": "Age group",
+      "group": "36-50",
+      "n": 669,
+      "actual_default_rate": 0.18535127055306427,
+      "precision": 0.8947368421052632,
+      "recall_default": 0.6854838709677419,
+      "default_detection_rate": 0.6854838709677419,
+      "false_positive_rate": 0.01834862385321101,
+      "small_sample_flag": false
+    },
+    {
+      "group_type": "Age group",
+      "group": "51+",
+      "n": 59,
+      "actual_default_rate": 0.23728813559322035,
+      "precision": 1.0,
+      "recall_default": 0.6428571428571429,
+      "default_detection_rate": 0.6428571428571429,
+      "false_positive_rate": 0.0,
+      "small_sample_flag": true
+    },
+    {
+      "group_type": "Income quartile",
+      "group": "(4999.999, 38400.0]",
+      "n": 1628,
+      "actual_default_rate": 0.39373464373464373,
+      "precision": 0.8862478777589134,
+      "recall_default": 0.8143525741029641,
+      "default_detection_rate": 0.8143525741029641,
+      "false_positive_rate": 0.06788247213779129,
+      "small_sample_flag": false
+    },
+    {
+      "group_type": "Income quartile",
+      "group": "(38400.0, 55000.0]",
+      "n": 1623,
+      "actual_default_rate": 0.2144177449168207,
+      "precision": 0.944206008583691,
+      "recall_default": 0.632183908045977,
+      "default_detection_rate": 0.632183908045977,
+      "false_positive_rate": 0.01019607843137255,
+      "small_sample_flag": false
+    },
+    {
+      "group_type": "Income quartile",
+      "group": "(55000.0, 80000.0]",
+      "n": 1681,
+      "actual_default_rate": 0.16894705532421178,
+      "precision": 0.921875,
+      "recall_default": 0.6232394366197183,
+      "default_detection_rate": 0.6232394366197183,
+      "false_positive_rate": 0.010737294201861132,
+      "small_sample_flag": false
+    },
+    {
+      "group_type": "Income quartile",
+      "group": "(80000.0, 1900000.0]",
+      "n": 1551,
+      "actual_default_rate": 0.09348807221147647,
+      "precision": 0.8414634146341463,
+      "recall_default": 0.47586206896551725,
+      "default_detection_rate": 0.47586206896551725,
+      "false_positive_rate": 0.009246088193456615,
+      "small_sample_flag": false
+    },
+    {
+      "group_type": "Home ownership",
+      "group": "MORTGAGE",
+      "n": 2687,
+      "actual_default_rate": 0.12727949385932266,
+      "precision": 0.7556818181818182,
+      "recall_default": 0.3888888888888889,
+      "default_detection_rate": 0.3888888888888889,
+      "false_positive_rate": 0.01833688699360341,
+      "small_sample_flag": false
+    },
+    {
+      "group_type": "Home ownership",
+      "group": "OTHER",
+      "n": 28,
+      "actual_default_rate": 0.21428571428571427,
+      "precision": 1.0,
+      "recall_default": 0.5,
+      "default_detection_rate": 0.5,
+      "false_positive_rate": 0.0,
+      "small_sample_flag": true
+    },
+    {
+      "group_type": "Home ownership",
+      "group": "OWN",
+      "n": 528,
+      "actual_default_rate": 0.08712121212121213,
+      "precision": 0.9534883720930233,
+      "recall_default": 0.8913043478260869,
+      "default_detection_rate": 0.8913043478260869,
+      "false_positive_rate": 0.004149377593360996,
+      "small_sample_flag": false
+    },
+    {
+      "group_type": "Home ownership",
+      "group": "RENT",
+      "n": 3240,
+      "actual_default_rate": 0.3160493827160494,
+      "precision": 0.9279176201372997,
+      "recall_default": 0.7919921875,
+      "default_detection_rate": 0.7919921875,
+      "false_positive_rate": 0.028429602888086644,
+      "small_sample_flag": false
+    },
+    {
+      "group_type": "Loan purpose",
+      "group": "DEBTCONSOLIDATION",
+      "n": 1030,
+      "actual_default_rate": 0.3058252427184466,
+      "precision": 0.9058823529411765,
+      "recall_default": 0.7333333333333333,
+      "default_detection_rate": 0.7333333333333333,
+      "false_positive_rate": 0.033566433566433566,
+      "small_sample_flag": false
+    },
+    {
+      "group_type": "Loan purpose",
+      "group": "EDUCATION",
+      "n": 1298,
+      "actual_default_rate": 0.16640986132511557,
+      "precision": 0.896774193548387,
+      "recall_default": 0.6435185185185185,
+      "default_detection_rate": 0.6435185185185185,
+      "false_positive_rate": 0.014787430683918669,
+      "small_sample_flag": false
+    },
+    {
+      "group_type": "Loan purpose",
+      "group": "HOMEIMPROVEMENT",
+      "n": 741,
+      "actual_default_rate": 0.24156545209176788,
+      "precision": 0.9481481481481482,
+      "recall_default": 0.7150837988826816,
+      "default_detection_rate": 0.7150837988826816,
+      "false_positive_rate": 0.012455516014234875,
+      "small_sample_flag": false
+    },
+    {
+      "group_type": "Loan purpose",
+      "group": "MEDICAL",
+      "n": 1188,
+      "actual_default_rate": 0.2718855218855219,
+      "precision": 0.8683274021352313,
+      "recall_default": 0.7554179566563467,
+      "default_detection_rate": 0.7554179566563467,
+      "false_positive_rate": 0.04277456647398844,
+      "small_sample_flag": false
+    },
+    {
+      "group_type": "Loan purpose",
+      "group": "PERSONAL",
+      "n": 1117,
+      "actual_default_rate": 0.21038495971351837,
+      "precision": 0.918918918918919,
+      "recall_default": 0.5787234042553191,
+      "default_detection_rate": 0.5787234042553191,
+      "false_positive_rate": 0.013605442176870748,
+      "small_sample_flag": false
+    },
+    {
+      "group_type": "Loan purpose",
+      "group": "VENTURE",
+      "n": 1109,
+      "actual_default_rate": 0.13525698827772767,
+      "precision": 0.9016393442622951,
+      "recall_default": 0.7333333333333333,
+      "default_detection_rate": 0.7333333333333333,
+      "false_positive_rate": 0.01251303441084463,
+      "small_sample_flag": false
+    }
+  ],
+  "feature_importance_method": "Random Forest impurity-based importance (not causal)",
+  "top_five_features": [
+    {
+      "feature": "numeric__loan_int_rate",
+      "importance": 0.26491858286692344
+    },
+    {
+      "feature": "numeric__loan_percent_income",
+      "importance": 0.25991685797295355
+    },
+    {
+      "feature": "numeric__person_income",
+      "importance": 0.1850489160814686
+    },
+    {
+      "feature": "categorical__person_home_ownership_RENT",
+      "importance": 0.047219039820100325
+    },
+    {
+      "feature": "numeric__loan_amnt",
+      "importance": 0.03689913110665102
+    }
+  ],
+  "shap": {
+    "available": true,
+    "generated": true,
+    "version": "0.54.1",
+    "explained_model": "first of five already-fitted fold-specific RandomForestClassifier estimators inside the calibrated candidate",
+    "explained_output": "underlying fold forest class-1 raw probability; not the isotonic-calibrated ensemble probability",
+    "background_sample_size": 100,
+    "global_sample_size": 256,
+    "random_states": {
+      "background": 42,
+      "global": 2026,
+      "applicant_profile_pool": 42
+    },
+    "max_probability_additivity_error": 0.0023710832674700977,
+    "max_applicant_probability_additivity_error": 0.0007763938699952583,
+    "top_ten_features": [
+      {
+        "feature": "numeric__loan_int_rate",
+        "mean_absolute_shap_value": 0.09626823245271982
+      },
+      {
+        "feature": "numeric__loan_percent_income",
+        "mean_absolute_shap_value": 0.07933828505366732
+      },
+      {
+        "feature": "numeric__person_income",
+        "mean_absolute_shap_value": 0.07021278113814419
+      },
+      {
+        "feature": "categorical__person_home_ownership_RENT",
+        "mean_absolute_shap_value": 0.03424668744312178
+      },
+      {
+        "feature": "categorical__loan_intent_VENTURE",
+        "mean_absolute_shap_value": 0.027317444811836816
+      },
+      {
+        "feature": "categorical__person_home_ownership_OWN",
+        "mean_absolute_shap_value": 0.02366007923815662
+      },
+      {
+        "feature": "categorical__loan_intent_HOMEIMPROVEMENT",
+        "mean_absolute_shap_value": 0.01816924062412298
+      },
+      {
+        "feature": "numeric__person_emp_length",
+        "mean_absolute_shap_value": 0.015700176530145937
+      },
+      {
+        "feature": "categorical__cb_person_default_on_file_Y",
+        "mean_absolute_shap_value": 0.013592635439129084
+      },
+      {
+        "feature": "categorical__loan_intent_MEDICAL",
+        "mean_absolute_shap_value": 0.013477365872784489
+      }
+    ],
+    "applicant_profiles": [
+      {
+        "profile": "Lower estimated risk",
+        "risk_quantile_in_sample": 0.1,
+        "calibrated_candidate_default_probability": 0.005735186889237484,
+        "fold_1_underlying_rf_raw_default_probability": 0.010886752136752139,
+        "fold_1_rf_base_value": 0.2614176845029546,
+        "observed_features": {
+          "person_age": 39,
+          "person_income": 85000,
+          "person_home_ownership": "MORTGAGE",
+          "person_emp_length": 2.0,
+          "loan_intent": "VENTURE",
+          "loan_amnt": 5000,
+          "loan_int_rate": 11.86,
+          "loan_percent_income": 0.06,
+          "cb_person_default_on_file": "N",
+          "cb_person_cred_hist_length": 15
+        },
+        "top_positive_contributions": [
+          {
+            "feature": "categorical__person_home_ownership_OWN",
+            "display_name": "Person Home Ownership = OWN",
+            "observed_value": "observed MORTGAGE; indicator inactive",
+            "shap_contribution": 0.007853470909677753
+          },
+          {
+            "feature": "numeric__person_emp_length",
+            "display_name": "Emp Length",
+            "observed_value": "2.00",
+            "shap_contribution": 0.006692683627189453
+          },
+          {
+            "feature": "numeric__loan_amnt",
+            "display_name": "Loan Amnt",
+            "observed_value": "5,000 loan amount units",
+            "shap_contribution": 0.003965511019413839
+          },
+          {
+            "feature": "numeric__cb_person_cred_hist_length",
+            "display_name": "Cb Cred Hist Length",
+            "observed_value": "15.00",
+            "shap_contribution": 0.0026084238857640683
+          },
+          {
+            "feature": "numeric__person_age",
+            "display_name": "Age",
+            "observed_value": "39 years",
+            "shap_contribution": 0.0019644101241533462
+          }
+        ],
+        "top_negative_contributions": [
+          {
+            "feature": "categorical__loan_intent_VENTURE",
+            "display_name": "Loan Intent = VENTURE",
+            "observed_value": "observed VENTURE; indicator active",
+            "shap_contribution": -0.06618270729119331
+          },
+          {
+            "feature": "numeric__person_income",
+            "display_name": "Income",
+            "observed_value": "85,000 annual income units",
+            "shap_contribution": -0.0612042254552523
+          },
+          {
+            "feature": "numeric__loan_int_rate",
+            "display_name": "Loan Int Rate",
+            "observed_value": "11.86% interest rate",
+            "shap_contribution": -0.04612412159560506
+          },
+          {
+            "feature": "numeric__loan_percent_income",
+            "display_name": "Loan Percent Income",
+            "observed_value": "6.0% of income",
+            "shap_contribution": -0.03518616883045837
+          },
+          {
+            "feature": "categorical__cb_person_default_on_file_N",
+            "display_name": "Cb Person Default On File = N",
+            "observed_value": "observed N; indicator active",
+            "shap_contribution": -0.01674188524429951
+          }
+        ]
+      },
+      {
+        "profile": "Medium estimated risk",
+        "risk_quantile_in_sample": 0.5,
+        "calibrated_candidate_default_probability": 0.06563018982014371,
+        "fold_1_underlying_rf_raw_default_probability": 0.2474965598008504,
+        "fold_1_rf_base_value": 0.2614176845029546,
+        "observed_features": {
+          "person_age": 27,
+          "person_income": 80000,
+          "person_home_ownership": "MORTGAGE",
+          "person_emp_length": 6.0,
+          "loan_intent": "MEDICAL",
+          "loan_amnt": 23750,
+          "loan_int_rate": 10.99,
+          "loan_percent_income": 0.3,
+          "cb_person_default_on_file": "N",
+          "cb_person_cred_hist_length": 9
+        },
+        "top_positive_contributions": [
+          {
+            "feature": "numeric__loan_amnt",
+            "display_name": "Loan Amnt",
+            "observed_value": "23,750 loan amount units",
+            "shap_contribution": 0.06718253021375745
+          },
+          {
+            "feature": "numeric__loan_percent_income",
+            "display_name": "Loan Percent Income",
+            "observed_value": "30.0% of income",
+            "shap_contribution": 0.043918129008364136
+          },
+          {
+            "feature": "categorical__loan_intent_VENTURE",
+            "display_name": "Loan Intent = VENTURE",
+            "observed_value": "observed MEDICAL; indicator inactive",
+            "shap_contribution": 0.027506031648882753
+          },
+          {
+            "feature": "categorical__loan_intent_MEDICAL",
+            "display_name": "Loan Intent = MEDICAL",
+            "observed_value": "observed MEDICAL; indicator active",
+            "shap_contribution": 0.019008991469159468
+          },
+          {
+            "feature": "categorical__person_home_ownership_OWN",
+            "display_name": "Person Home Ownership = OWN",
+            "observed_value": "observed MORTGAGE; indicator inactive",
+            "shap_contribution": 0.013376969607720638
+          }
+        ],
+        "top_negative_contributions": [
+          {
+            "feature": "numeric__person_income",
+            "display_name": "Income",
+            "observed_value": "80,000 annual income units",
+            "shap_contribution": -0.05245202440842661
+          },
+          {
+            "feature": "categorical__cb_person_default_on_file_Y",
+            "display_name": "Cb Person Default On File = Y",
+            "observed_value": "observed N; indicator inactive",
+            "shap_contribution": -0.02920728947684836
+          },
+          {
+            "feature": "categorical__cb_person_default_on_file_N",
+            "display_name": "Cb Person Default On File = N",
+            "observed_value": "observed N; indicator active",
+            "shap_contribution": -0.02857099406139355
+          },
+          {
+            "feature": "numeric__cb_person_cred_hist_length",
+            "display_name": "Cb Cred Hist Length",
+            "observed_value": "9.00",
+            "shap_contribution": -0.01804594070689575
+          },
+          {
+            "feature": "numeric__loan_int_rate",
+            "display_name": "Loan Int Rate",
+            "observed_value": "10.99% interest rate",
+            "shap_contribution": -0.01716725738631453
+          }
+        ]
+      },
+      {
+        "profile": "Higher estimated risk",
+        "risk_quantile_in_sample": 0.9,
+        "calibrated_candidate_default_probability": 1.0,
+        "fold_1_underlying_rf_raw_default_probability": 1.0,
+        "fold_1_rf_base_value": 0.2614176845029546,
+        "observed_features": {
+          "person_age": 23,
+          "person_income": 14400,
+          "person_home_ownership": "RENT",
+          "person_emp_length": 0.0,
+          "loan_intent": "DEBTCONSOLIDATION",
+          "loan_amnt": 4000,
+          "loan_int_rate": 10.74,
+          "loan_percent_income": 0.28,
+          "cb_person_default_on_file": "N",
+          "cb_person_cred_hist_length": 3
+        },
+        "top_positive_contributions": [
+          {
+            "feature": "numeric__person_income",
+            "display_name": "Income",
+            "observed_value": "14,400 annual income units",
+            "shap_contribution": 0.4927119960209933
+          },
+          {
+            "feature": "numeric__loan_percent_income",
+            "display_name": "Loan Percent Income",
+            "observed_value": "28.0% of income",
+            "shap_contribution": 0.19967095005286895
+          },
+          {
+            "feature": "numeric__loan_amnt",
+            "display_name": "Loan Amnt",
+            "observed_value": "4,000 loan amount units",
+            "shap_contribution": 0.026139294324678986
+          },
+          {
+            "feature": "categorical__person_home_ownership_RENT",
+            "display_name": "Person Home Ownership = RENT",
+            "observed_value": "observed RENT; indicator active",
+            "shap_contribution": 0.016517676569230845
+          },
+          {
+            "feature": "categorical__loan_intent_DEBTCONSOLIDATION",
+            "display_name": "Loan Intent = DEBTCONSOLIDATION",
+            "observed_value": "observed DEBTCONSOLIDATION; indicator active",
+            "shap_contribution": 0.015744549770132607
+          }
+        ],
+        "top_negative_contributions": [
+          {
+            "feature": "numeric__loan_int_rate",
+            "display_name": "Loan Int Rate",
+            "observed_value": "10.74% interest rate",
+            "shap_contribution": -0.016625221975253908
+          },
+          {
+            "feature": "categorical__loan_intent_HOMEIMPROVEMENT",
+            "display_name": "Loan Intent = HOMEIMPROVEMENT",
+            "observed_value": "observed DEBTCONSOLIDATION; indicator inactive",
+            "shap_contribution": -0.00888697716273839
+          },
+          {
+            "feature": "categorical__cb_person_default_on_file_Y",
+            "display_name": "Cb Person Default On File = Y",
+            "observed_value": "observed N; indicator inactive",
+            "shap_contribution": -0.007467778522552635
+          },
+          {
+            "feature": "categorical__cb_person_default_on_file_N",
+            "display_name": "Cb Person Default On File = N",
+            "observed_value": "observed N; indicator active",
+            "shap_contribution": -0.006651818765290045
+          },
+          {
+            "feature": "categorical__loan_intent_MEDICAL",
+            "display_name": "Loan Intent = MEDICAL",
+            "observed_value": "observed DEBTCONSOLIDATION; indicator inactive",
+            "shap_contribution": -0.003506088094189863
+          }
+        ]
+      }
+    ],
+    "interpretation_caveat": "SHAP attributions describe one fitted fold forest output and are not causal; they do not decompose the complete calibrated ensemble probability.",
+    "artifacts": {
+      "beeswarm_plot": "reports\\phase4_shap_summary_beeswarm.png",
+      "global_bar_plot": "reports\\phase4_shap_global_bar.png",
+      "importance_table": "reports\\phase4_shap_global_importance.csv",
+      "applicant_explanations_csv": "reports\\phase4_shap_applicant_explanations.csv",
+      "applicant_explanations_json": "reports\\phase4_shap_applicant_explanations.json",
+      "individual_waterfalls": [
+        "reports\\phase4_shap_lower_estimated_risk_waterfall.png",
+        "reports\\phase4_shap_medium_estimated_risk_waterfall.png",
+        "reports\\phase4_shap_higher_estimated_risk_waterfall.png"
+      ]
+    }
+  },
+  "artifacts": {
+    "candidate_pipeline": "models\\credit_risk_rf_optimized_calibrated_no_loan_grade.joblib",
+    "with_grade_comparison_pipeline": "models\\credit_risk_rf_optimized_calibrated_with_loan_grade_comparison.joblib",
+    "search_csv": "reports\\phase4_random_forest_cv_search.csv",
+    "calibration_csv": "reports\\phase4_calibration_oof_comparison.csv",
+    "threshold_csv": "reports\\phase4_training_oof_threshold_analysis.csv",
+    "test_metrics_csv": "reports\\phase4_final_test_metrics.csv",
+    "subgroup_csv": "reports\\phase4_test_subgroup_metrics.csv",
+    "importance_csv": "reports\\phase4_random_forest_feature_importance.csv",
+    "training_calibration_plot": "reports\\phase4_training_oof_calibration.png",
+    "test_calibration_plot": "reports\\phase4_test_calibration_final.png",
+    "importance_plot": "reports\\phase4_random_forest_feature_importance.png"
+  },
+  "phase3_benchmark": {
+    "configuration": "B_without_loan_grade__Random_Forest__default",
+    "scenario": "B_without_loan_grade",
+    "model": "Random Forest",
+    "class_weight": "default",
+    "feature_count": 10,
+    "accuracy": 0.9191732222736387,
+    "precision_default": 0.9289827255278311,
+    "recall_default": 0.6826516220028209,
+    "f1_default": 0.7869918699186992,
+    "roc_auc": 0.9224471155653512,
+    "pr_auc_average_precision": 0.8641875585273266
+  }
+}

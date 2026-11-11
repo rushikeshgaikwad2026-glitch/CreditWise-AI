@@ -1,0 +1,25 @@
+﻿# Python environment and cache
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+
+# Git LFS: keep only the deployed candidate model
+/models/*.joblib
+!/models/credit_risk_rf_optimized_calibrated_no_loan_grade.joblib
+
+# Streamlit and local secrets
+.streamlit/secrets.toml
+.streamlit/config.toml
+
+# Environment variables and credentials
+.env
+.env.*
+!.env.example
+
+# Temporary files and logs
+*.log
+*smoke*
+.DS_Store
+Thumbs.db

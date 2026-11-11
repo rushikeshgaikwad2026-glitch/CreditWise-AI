@@ -1,0 +1,251 @@
+[
+  {
+    "profile": "Lower estimated risk",
+    "risk_quantile_in_sample": 0.1,
+    "calibrated_candidate_default_probability": 0.005735186889237484,
+    "fold_1_underlying_rf_raw_default_probability": 0.010886752136752139,
+    "fold_1_rf_base_value": 0.2614176845029546,
+    "observed_features": {
+      "person_age": 39,
+      "person_income": 85000,
+      "person_home_ownership": "MORTGAGE",
+      "person_emp_length": 2.0,
+      "loan_intent": "VENTURE",
+      "loan_amnt": 5000,
+      "loan_int_rate": 11.86,
+      "loan_percent_income": 0.06,
+      "cb_person_default_on_file": "N",
+      "cb_person_cred_hist_length": 15
+    },
+    "top_positive_contributions": [
+      {
+        "feature": "categorical__person_home_ownership_OWN",
+        "display_name": "Person Home Ownership = OWN",
+        "observed_value": "observed MORTGAGE; indicator inactive",
+        "shap_contribution": 0.007853470909677753
+      },
+      {
+        "feature": "numeric__person_emp_length",
+        "display_name": "Emp Length",
+        "observed_value": "2.00",
+        "shap_contribution": 0.006692683627189453
+      },
+      {
+        "feature": "numeric__loan_amnt",
+        "display_name": "Loan Amnt",
+        "observed_value": "5,000 loan amount units",
+        "shap_contribution": 0.003965511019413839
+      },
+      {
+        "feature": "numeric__cb_person_cred_hist_length",
+        "display_name": "Cb Cred Hist Length",
+        "observed_value": "15.00",
+        "shap_contribution": 0.0026084238857640683
+      },
+      {
+        "feature": "numeric__person_age",
+        "display_name": "Age",
+        "observed_value": "39 years",
+        "shap_contribution": 0.0019644101241533462
+      }
+    ],
+    "top_negative_contributions": [
+      {
+        "feature": "categorical__loan_intent_VENTURE",
+        "display_name": "Loan Intent = VENTURE",
+        "observed_value": "observed VENTURE; indicator active",
+        "shap_contribution": -0.06618270729119331
+      },
+      {
+        "feature": "numeric__person_income",
+        "display_name": "Income",
+        "observed_value": "85,000 annual income units",
+        "shap_contribution": -0.0612042254552523
+      },
+      {
+        "feature": "numeric__loan_int_rate",
+        "display_name": "Loan Int Rate",
+        "observed_value": "11.86% interest rate",
+        "shap_contribution": -0.04612412159560506
+      },
+      {
+        "feature": "numeric__loan_percent_income",
+        "display_name": "Loan Percent Income",
+        "observed_value": "6.0% of income",
+        "shap_contribution": -0.03518616883045837
+      },
+      {
+        "feature": "categorical__cb_person_default_on_file_N",
+        "display_name": "Cb Person Default On File = N",
+        "observed_value": "observed N; indicator active",
+        "shap_contribution": -0.01674188524429951
+      }
+    ]
+  },
+  {
+    "profile": "Medium estimated risk",
+    "risk_quantile_in_sample": 0.5,
+    "calibrated_candidate_default_probability": 0.06563018982014371,
+    "fold_1_underlying_rf_raw_default_probability": 0.2474965598008504,
+    "fold_1_rf_base_value": 0.2614176845029546,
+    "observed_features": {
+      "person_age": 27,
+      "person_income": 80000,
+      "person_home_ownership": "MORTGAGE",
+      "person_emp_length": 6.0,
+      "loan_intent": "MEDICAL",
+      "loan_amnt": 23750,
+      "loan_int_rate": 10.99,
+      "loan_percent_income": 0.3,
+      "cb_person_default_on_file": "N",
+      "cb_person_cred_hist_length": 9
+    },
+    "top_positive_contributions": [
+      {
+        "feature": "numeric__loan_amnt",
+        "display_name": "Loan Amnt",
+        "observed_value": "23,750 loan amount units",
+        "shap_contribution": 0.06718253021375745
+      },
+      {
+        "feature": "numeric__loan_percent_income",
+        "display_name": "Loan Percent Income",
+        "observed_value": "30.0% of income",
+        "shap_contribution": 0.043918129008364136
+      },
+      {
+        "feature": "categorical__loan_intent_VENTURE",
+        "display_name": "Loan Intent = VENTURE",
+        "observed_value": "observed MEDICAL; indicator inactive",
+        "shap_contribution": 0.027506031648882753
+      },
+      {
+        "feature": "categorical__loan_intent_MEDICAL",
+        "display_name": "Loan Intent = MEDICAL",
+        "observed_value": "observed MEDICAL; indicator active",
+        "shap_contribution": 0.019008991469159468
+      },
+      {
+        "feature": "categorical__person_home_ownership_OWN",
+        "display_name": "Person Home Ownership = OWN",
+        "observed_value": "observed MORTGAGE; indicator inactive",
+        "shap_contribution": 0.013376969607720638
+      }
+    ],
+    "top_negative_contributions": [
+      {
+        "feature": "numeric__person_income",
+        "display_name": "Income",
+        "observed_value": "80,000 annual income units",
+        "shap_contribution": -0.05245202440842661
+      },
+      {
+        "feature": "categorical__cb_person_default_on_file_Y",
+        "display_name": "Cb Person Default On File = Y",
+        "observed_value": "observed N; indicator inactive",
+        "shap_contribution": -0.02920728947684836
+      },
+      {
+        "feature": "categorical__cb_person_default_on_file_N",
+        "display_name": "Cb Person Default On File = N",
+        "observed_value": "observed N; indicator active",
+        "shap_contribution": -0.02857099406139355
+      },
+      {
+        "feature": "numeric__cb_person_cred_hist_length",
+        "display_name": "Cb Cred Hist Length",
+        "observed_value": "9.00",
+        "shap_contribution": -0.01804594070689575
+      },
+      {
+        "feature": "numeric__loan_int_rate",
+        "display_name": "Loan Int Rate",
+        "observed_value": "10.99% interest rate",
+        "shap_contribution": -0.01716725738631453
+      }
+    ]
+  },
+  {
+    "profile": "Higher estimated risk",
+    "risk_quantile_in_sample": 0.9,
+    "calibrated_candidate_default_probability": 1.0,
+    "fold_1_underlying_rf_raw_default_probability": 1.0,
+    "fold_1_rf_base_value": 0.2614176845029546,
+    "observed_features": {
+      "person_age": 23,
+      "person_income": 14400,
+      "person_home_ownership": "RENT",
+      "person_emp_length": 0.0,
+      "loan_intent": "DEBTCONSOLIDATION",
+      "loan_amnt": 4000,
+      "loan_int_rate": 10.74,
+      "loan_percent_income": 0.28,
+      "cb_person_default_on_file": "N",
+      "cb_person_cred_hist_length": 3
+    },
+    "top_positive_contributions": [
+      {
+        "feature": "numeric__person_income",
+        "display_name": "Income",
+        "observed_value": "14,400 annual income units",
+        "shap_contribution": 0.4927119960209933
+      },
+      {
+        "feature": "numeric__loan_percent_income",
+        "display_name": "Loan Percent Income",
+        "observed_value": "28.0% of income",
+        "shap_contribution": 0.19967095005286895
+      },
+      {
+        "feature": "numeric__loan_amnt",
+        "display_name": "Loan Amnt",
+        "observed_value": "4,000 loan amount units",
+        "shap_contribution": 0.026139294324678986
+      },
+      {
+        "feature": "categorical__person_home_ownership_RENT",
+        "display_name": "Person Home Ownership = RENT",
+        "observed_value": "observed RENT; indicator active",
+        "shap_contribution": 0.016517676569230845
+      },
+      {
+        "feature": "categorical__loan_intent_DEBTCONSOLIDATION",
+        "display_name": "Loan Intent = DEBTCONSOLIDATION",
+        "observed_value": "observed DEBTCONSOLIDATION; indicator active",
+        "shap_contribution": 0.015744549770132607
+      }
+    ],
+    "top_negative_contributions": [
+      {
+        "feature": "numeric__loan_int_rate",
+        "display_name": "Loan Int Rate",
+        "observed_value": "10.74% interest rate",
+        "shap_contribution": -0.016625221975253908
+      },
+      {
+        "feature": "categorical__loan_intent_HOMEIMPROVEMENT",
+        "display_name": "Loan Intent = HOMEIMPROVEMENT",
+        "observed_value": "observed DEBTCONSOLIDATION; indicator inactive",
+        "shap_contribution": -0.00888697716273839
+      },
+      {
+        "feature": "categorical__cb_person_default_on_file_Y",
+        "display_name": "Cb Person Default On File = Y",
+        "observed_value": "observed N; indicator inactive",
+        "shap_contribution": -0.007467778522552635
+      },
+      {
+        "feature": "categorical__cb_person_default_on_file_N",
+        "display_name": "Cb Person Default On File = N",
+        "observed_value": "observed N; indicator active",
+        "shap_contribution": -0.006651818765290045
+      },
+      {
+        "feature": "categorical__loan_intent_MEDICAL",
+        "display_name": "Loan Intent = MEDICAL",
+        "observed_value": "observed DEBTCONSOLIDATION; indicator inactive",
+        "shap_contribution": -0.003506088094189863
+      }
+    ]
+  }
+]

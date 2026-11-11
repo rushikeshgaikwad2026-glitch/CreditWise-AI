@@ -1,0 +1,355 @@
+{
+  "objective": "Default-risk probability estimation for research and decision support; not an automated loan decision.",
+  "source_split": {
+    "train_file": "data\\processed\\credit_risk_train.csv",
+    "test_file": "data\\processed\\credit_risk_test.csv",
+    "random_state": 42,
+    "stratified_by": "loan_status",
+    "train_rows": 25928,
+    "test_rows": 6483
+  },
+  "threshold": 0.5,
+  "threshold_tuning": "none; fixed at 0.50",
+  "model_selection": "Test metrics are reported for comparison only; no tuning or selection used the test set.",
+  "scenarios": {
+    "A_all_features": [
+      "person_age",
+      "person_income",
+      "person_home_ownership",
+      "person_emp_length",
+      "loan_intent",
+      "loan_grade",
+      "loan_amnt",
+      "loan_int_rate",
+      "loan_percent_income",
+      "cb_person_default_on_file",
+      "cb_person_cred_hist_length"
+    ],
+    "B_without_loan_grade": [
+      "person_age",
+      "person_income",
+      "person_home_ownership",
+      "person_emp_length",
+      "loan_intent",
+      "loan_amnt",
+      "loan_int_rate",
+      "loan_percent_income",
+      "cb_person_default_on_file",
+      "cb_person_cred_hist_length"
+    ]
+  },
+  "class_weight_policies": [
+    "default",
+    "balanced"
+  ],
+  "versions": {
+    "python": "3.14.7",
+    "pandas": "3.1.1",
+    "scikit_learn": "1.9.1"
+  },
+  "feature_importance": "Impurity-based; descriptive, not causal.",
+  "metrics": [
+    {
+      "configuration": "A_all_features__Logistic_Regression__default",
+      "scenario": "A_all_features",
+      "model": "Logistic Regression",
+      "class_weight": "default",
+      "feature_count": 11,
+      "accuracy": 0.8704303563165201,
+      "precision_default": 0.778957528957529,
+      "recall_default": 0.5691114245416079,
+      "f1_default": 0.6577017114914425,
+      "roc_auc": 0.8668011199957673,
+      "pr_auc_average_precision": 0.7299576974112292,
+      "confusion_matrix": [
+        [
+          4836,
+          229
+        ],
+        [
+          611,
+          807
+        ]
+      ],
+      "warnings": []
+    },
+    {
+      "configuration": "A_all_features__Decision_Tree__default",
+      "scenario": "A_all_features",
+      "model": "Decision Tree",
+      "class_weight": "default",
+      "feature_count": 11,
+      "accuracy": 0.8863180626253278,
+      "precision_default": 0.7253474520185308,
+      "recall_default": 0.7729196050775741,
+      "f1_default": 0.7483782861044725,
+      "roc_auc": 0.8454923790442165,
+      "pr_auc_average_precision": 0.610303629570188,
+      "confusion_matrix": [
+        [
+          4650,
+          415
+        ],
+        [
+          322,
+          1096
+        ]
+      ],
+      "warnings": []
+    },
+    {
+      "configuration": "A_all_features__Random_Forest__default",
+      "scenario": "A_all_features",
+      "model": "Random Forest",
+      "class_weight": "default",
+      "feature_count": 11,
+      "accuracy": 0.933826931975937,
+      "precision_default": 0.9669499527856469,
+      "recall_default": 0.7221438645980254,
+      "f1_default": 0.826806620912394,
+      "roc_auc": 0.9306185317250913,
+      "pr_auc_average_precision": 0.883887143588912,
+      "confusion_matrix": [
+        [
+          5030,
+          35
+        ],
+        [
+          394,
+          1024
+        ]
+      ],
+      "warnings": []
+    },
+    {
+      "configuration": "A_all_features__Logistic_Regression__balanced",
+      "scenario": "A_all_features",
+      "model": "Logistic Regression",
+      "class_weight": "balanced",
+      "feature_count": 11,
+      "accuracy": 0.8124325158105815,
+      "precision_default": 0.5509072580645161,
+      "recall_default": 0.7708039492242595,
+      "f1_default": 0.6425631981187536,
+      "roc_auc": 0.8686391438799137,
+      "pr_auc_average_precision": 0.7214998934178192,
+      "confusion_matrix": [
+        [
+          4174,
+          891
+        ],
+        [
+          325,
+          1093
+        ]
+      ],
+      "warnings": []
+    },
+    {
+      "configuration": "A_all_features__Decision_Tree__balanced",
+      "scenario": "A_all_features",
+      "model": "Decision Tree",
+      "class_weight": "balanced",
+      "feature_count": 11,
+      "accuracy": 0.8907913003239241,
+      "precision_default": 0.7461858529819695,
+      "recall_default": 0.7588152327221439,
+      "f1_default": 0.7524475524475525,
+      "roc_auc": 0.8432773103393544,
+      "pr_auc_average_precision": 0.6189705466127585,
+      "confusion_matrix": [
+        [
+          4699,
+          366
+        ],
+        [
+          342,
+          1076
+        ]
+      ],
+      "warnings": []
+    },
+    {
+      "configuration": "A_all_features__Random_Forest__balanced",
+      "scenario": "A_all_features",
+      "model": "Random Forest",
+      "class_weight": "balanced",
+      "feature_count": 11,
+      "accuracy": 0.928736695974086,
+      "precision_default": 0.9127806563039723,
+      "recall_default": 0.7454160789844851,
+      "f1_default": 0.8206521739130435,
+      "roc_auc": 0.9303260713684026,
+      "pr_auc_average_precision": 0.8826729821960053,
+      "confusion_matrix": [
+        [
+          4964,
+          101
+        ],
+        [
+          361,
+          1057
+        ]
+      ],
+      "warnings": []
+    },
+    {
+      "configuration": "B_without_loan_grade__Logistic_Regression__default",
+      "scenario": "B_without_loan_grade",
+      "model": "Logistic Regression",
+      "class_weight": "default",
+      "feature_count": 10,
+      "accuracy": 0.8497609131574888,
+      "precision_default": 0.7472160356347439,
+      "recall_default": 0.47320169252468264,
+      "f1_default": 0.5794473229706391,
+      "roc_auc": 0.8493893906716216,
+      "pr_auc_average_precision": 0.6816008435924313,
+      "confusion_matrix": [
+        [
+          4838,
+          227
+        ],
+        [
+          747,
+          671
+        ]
+      ],
+      "warnings": []
+    },
+    {
+      "configuration": "B_without_loan_grade__Decision_Tree__default",
+      "scenario": "B_without_loan_grade",
+      "model": "Decision Tree",
+      "class_weight": "default",
+      "feature_count": 10,
+      "accuracy": 0.8739780965602345,
+      "precision_default": 0.6980883322346737,
+      "recall_default": 0.7468265162200282,
+      "f1_default": 0.7216354344122657,
+      "roc_auc": 0.8282010172413072,
+      "pr_auc_average_precision": 0.5767264748937773,
+      "confusion_matrix": [
+        [
+          4607,
+          458
+        ],
+        [
+          359,
+          1059
+        ]
+      ],
+      "warnings": []
+    },
+    {
+      "configuration": "B_without_loan_grade__Random_Forest__default",
+      "scenario": "B_without_loan_grade",
+      "model": "Random Forest",
+      "class_weight": "default",
+      "feature_count": 10,
+      "accuracy": 0.9191732222736387,
+      "precision_default": 0.9289827255278311,
+      "recall_default": 0.6826516220028209,
+      "f1_default": 0.7869918699186992,
+      "roc_auc": 0.9224471155653512,
+      "pr_auc_average_precision": 0.8641875585273266,
+      "confusion_matrix": [
+        [
+          4991,
+          74
+        ],
+        [
+          450,
+          968
+        ]
+      ],
+      "warnings": []
+    },
+    {
+      "configuration": "B_without_loan_grade__Logistic_Regression__balanced",
+      "scenario": "B_without_loan_grade",
+      "model": "Logistic Regression",
+      "class_weight": "balanced",
+      "feature_count": 10,
+      "accuracy": 0.7735616227055375,
+      "precision_default": 0.48879928315412186,
+      "recall_default": 0.7693935119887165,
+      "f1_default": 0.5978082191780822,
+      "roc_auc": 0.8500731673018044,
+      "pr_auc_average_precision": 0.676986122425149,
+      "confusion_matrix": [
+        [
+          3924,
+          1141
+        ],
+        [
+          327,
+          1091
+        ]
+      ],
+      "warnings": []
+    },
+    {
+      "configuration": "B_without_loan_grade__Decision_Tree__balanced",
+      "scenario": "B_without_loan_grade",
+      "model": "Decision Tree",
+      "class_weight": "balanced",
+      "feature_count": 10,
+      "accuracy": 0.8796853308653401,
+      "precision_default": 0.7170068027210884,
+      "recall_default": 0.7433004231311706,
+      "f1_default": 0.7299168975069252,
+      "roc_auc": 0.8305840713878953,
+      "pr_auc_average_precision": 0.5890983054466875,
+      "confusion_matrix": [
+        [
+          4649,
+          416
+        ],
+        [
+          364,
+          1054
+        ]
+      ],
+      "warnings": []
+    },
+    {
+      "configuration": "B_without_loan_grade__Random_Forest__balanced",
+      "scenario": "B_without_loan_grade",
+      "model": "Random Forest",
+      "class_weight": "balanced",
+      "feature_count": 10,
+      "accuracy": 0.91207774178621,
+      "precision_default": 0.8533333333333334,
+      "recall_default": 0.7221438645980254,
+      "f1_default": 0.7822765469824293,
+      "roc_auc": 0.9230069045984708,
+      "pr_auc_average_precision": 0.8636999787435713,
+      "confusion_matrix": [
+        [
+          4889,
+          176
+        ],
+        [
+          394,
+          1024
+        ]
+      ],
+      "warnings": []
+    }
+  ],
+  "saved_models": {
+    "A_all_features__Logistic_Regression__default": "models\\credit_risk_A_all_features__Logistic_Regression__default.joblib",
+    "A_all_features__Decision_Tree__default": "models\\credit_risk_A_all_features__Decision_Tree__default.joblib",
+    "A_all_features__Random_Forest__default": "models\\credit_risk_A_all_features__Random_Forest__default.joblib",
+    "A_all_features__Logistic_Regression__balanced": "models\\credit_risk_A_all_features__Logistic_Regression__balanced.joblib",
+    "A_all_features__Decision_Tree__balanced": "models\\credit_risk_A_all_features__Decision_Tree__balanced.joblib",
+    "A_all_features__Random_Forest__balanced": "models\\credit_risk_A_all_features__Random_Forest__balanced.joblib",
+    "B_without_loan_grade__Logistic_Regression__default": "models\\credit_risk_B_without_loan_grade__Logistic_Regression__default.joblib",
+    "B_without_loan_grade__Decision_Tree__default": "models\\credit_risk_B_without_loan_grade__Decision_Tree__default.joblib",
+    "B_without_loan_grade__Random_Forest__default": "models\\credit_risk_B_without_loan_grade__Random_Forest__default.joblib",
+    "B_without_loan_grade__Logistic_Regression__balanced": "models\\credit_risk_B_without_loan_grade__Logistic_Regression__balanced.joblib",
+    "B_without_loan_grade__Decision_Tree__balanced": "models\\credit_risk_B_without_loan_grade__Decision_Tree__balanced.joblib",
+    "B_without_loan_grade__Random_Forest__balanced": "models\\credit_risk_B_without_loan_grade__Random_Forest__balanced.joblib"
+  }
+}
